@@ -1,0 +1,10 @@
+server:
+  port: 8181
+spring:
+  application:
+    name: SpringBootCassandra
+  data:
+    cassandra:
+      port: 9042
+      keyspace-name: spring_boot_kespc
+      contact-points: 127.0.0.1

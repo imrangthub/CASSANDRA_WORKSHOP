@@ -1,0 +1,36 @@
+plugins {
+    id "java"
+    id "maven-publish"
+    id "org.springframework.boot" version "2.1.7.RELEASE"
+    id "io.spring.dependency-management" version "1.0.8.RELEASE"
+    id "org.jetbrains.gradle.plugin.idea-ext" version "0.5"
+}
+
+group 'com.imranmadbar'
+version '1.0-SNAPSHOT'
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+    options.encoding = "UTF-8"
+}
+
+compileTestJava {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+    options.encoding = "UTF-8"
+    options.compilerArgs += "-parameters"
+}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(
+            "org.springframework.boot:spring-boot-starter-web"
+    )
+    implementation 'org.springframework.boot:spring-boot-starter-data-cassandra'
+    annotationProcessor("org.projectlombok:lombok")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    compileOnly("org.projectlombok:lombok")
+}
