@@ -35,15 +35,17 @@ public class UserController {
 
 
 
-//    @PostConstruct
-//    public void saveUser() {
-//        List<UserEntity> users = new ArrayList<>();
-//        users.add(new UserEntity(6437, "Nabila", "Bangalore", 50));
-//        users.add(new UserEntity(3523, "Papya", "Pune", 20));
-//        users.add(new UserEntity(8694, "Shawon", "Mumbai", 30));
-//        users.add(new UserEntity(9854, "Biddut", "Odisha", 25));
-//        repository.saveAll(users);
-//    }
+    @PostConstruct
+    public void saveUser() {
+        List<UserEntity> users = new ArrayList<>();
+        users.add(new UserEntity(1001, "MD IMRAN HOSSAIN", "Dhaka", 30));
+        users.add(new UserEntity(1002, "Mithila Hossain", "Dhaka", 26));
+        users.add(new UserEntity(1003, "Nabila", "Dhaka", 25));
+        users.add(new UserEntity(1004, "Papya", "Dhaka", 22));
+        users.add(new UserEntity(1005, "Shawon", "Boriasl", 35));
+        users.add(new UserEntity(1006, "Biddut", "Khulna", 25));
+        repository.saveAll(users);
+    }
 
 
 }
