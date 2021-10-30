@@ -3,14 +3,11 @@ server:
 spring:
   application:
     name: SpringBootCassandraJpa
-  datasource:
-    url: jdbc:mysql://localhost:3306/spring_boot_cassandradb
-    username: root
-    password: root
-  jpa:
-    hibernate.ddl-auto: update
-    generate-ddl: true
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
+  data:
+    cassandra:
+      port: 9042
+      keyspace-name: springbootcassandradb
+      contact-points: 127.0.0.1
+      schema-action: create_if_not_exists
+      username: cassandra
+      password: cassandra

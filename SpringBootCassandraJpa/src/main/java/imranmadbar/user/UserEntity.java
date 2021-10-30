@@ -1,32 +1,21 @@
 package imranmadbar.user;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
 
 
-@Getter
-@Setter
-@Entity
-@ToString
-@NoArgsConstructor
+
+@Data
 @AllArgsConstructor
-@Table(name = "user_table")
+@NoArgsConstructor
+@Table("user_tbl")
 public class UserEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @PrimaryKey
+    private String id;
     private String name;
     private String address;
     private int age;
@@ -36,4 +25,7 @@ public class UserEntity {
         this.address = address;
         this.age = age;
     }
+
+
+
 }

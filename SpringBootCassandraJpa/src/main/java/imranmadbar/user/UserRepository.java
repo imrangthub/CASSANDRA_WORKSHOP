@@ -1,17 +1,13 @@
 package imranmadbar.user;
 
-import java.util.Optional;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import java.util.List;
 
+import org.springframework.data.cassandra.repository.AllowFiltering;
+import org.springframework.data.cassandra.repository.CassandraRepository;
 
-public interface UserRepository extends JpaRepository<UserEntity, Integer> {
+public interface UserRepository extends CassandraRepository<UserEntity, Integer> {
 
-    @Query(
-            value = "SELECT * FROM USER_TABLE WHERE id=:id order by id desc limit 1",
-            nativeQuery = true)
-    Optional<UserEntity> findById(@Param("id") Long id);
-
+    @AllowFiltering
+    List<UserEntity> findByAgeGreaterThan(int age);
 
 }

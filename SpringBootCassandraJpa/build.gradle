@@ -34,8 +34,7 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     compileOnly("org.projectlombok:lombok")
+    implementation 'org.springframework.data:spring-data-cassandra:3.2.6'
 
-    implementation "org.springframework.boot:spring-boot-starter-data-jpa"
-    runtimeOnly "mysql:mysql-connector-java"
 
 }
