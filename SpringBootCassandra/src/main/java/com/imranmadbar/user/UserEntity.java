@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,4 +19,9 @@ public class UserEntity {
     private String address;
     private int age;
 
+    public UserEntity(String name, String address, int age) {
+        this.name = name;
+        this.address = address;
+        this.age = age;
+    }
 }

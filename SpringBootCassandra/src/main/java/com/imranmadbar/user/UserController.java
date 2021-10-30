@@ -5,14 +5,11 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.cassandra.core.mapping.PrimaryKey;
-import org.springframework.data.cassandra.core.mapping.Table;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -31,6 +28,26 @@ public class UserController {
     @GetMapping("/user-by-age/{age}")
     public List<UserEntity> getUserFilterByAge(@PathVariable int age) {
         return repository.findByAgeGreaterThan(age);
+    }
+
+    @GetMapping("/user-save")
+    public String saveAUser(@RequestParam int id, @RequestParam String name, @RequestParam String address, @RequestParam int age) {
+        repository.save(new UserEntity(id, name, address, age));
+        return "Save Success";
+    }
+
+    @GetMapping("/user-remove/{id}")
+    public String userRemove(@PathVariable int id) {
+        UserEntity userObj = new UserEntity();
+        userObj.setId(id);
+        repository.delete(userObj);
+        return "Successfully User delete !";
+    }
+
+    @GetMapping("/user-remove-all")
+    public String allUserRemove() {
+        repository.deleteAll();
+        return "Successfully all User delete !";
     }
 
 
