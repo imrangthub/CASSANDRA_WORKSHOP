@@ -52,3 +52,23 @@
           
           
           =>rm cassandra.yaml
+          
+          =>cqlsh -u cassandra -p cassandra
+          
+          
+          
+          Authentication
+          ---------------------------------------------
+
+          =>ALTER ROLE apihub WITH PASSWORD='apihub1';
+          =>LIST ROLES OF apihub;
+
+          =>CREATE USER alice WITH PASSWORD 'password_a' SUPERUSER;
+          =>CREATE ROLE imran WITH PASSWORD = '123456' AND LOGIN = true AND SUPERUSER = true;
+
+          =>LIST ALL PERMISSIONS OF apihub;
+          =>LIST SELECT PERMISSIONS OF apihub;
+
+          =>GRANT apihub TO apihub4;
+
+          =>UPDATE system.local SET cluster_name = 'dev-bs' where key='local';
