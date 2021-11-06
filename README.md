@@ -34,10 +34,21 @@
 
           =>INSERT INTO user_tbl (id, name, address, age) VALUES(1001,'MD IMRAN HOSSAIN', 'Dhaka', 30);
           => select * from user_tbl;
-
+          
+          =>CREATE USER alice WITH PASSWORD 'password_a' SUPERUSER;
 
           =>LIST ROLES;
           =>LIST USERS;
 
 
 
+           =>docker ps -a
+           
+           
+          =>docker exec -it a394ae84224c bash
+          
+          =>docker cp e029d15afdfc:/etc/cassandra/cassandra.yaml C:/Z_MY_COMPUTER
+          =>docker cp C:/Z_MY_COMPUTER/cassandra.yaml a394ae84224c:/etc/cassandra
+          
+          
+          =>rm cassandra.yaml
